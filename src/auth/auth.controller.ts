@@ -6,6 +6,7 @@ export class AuthController {
 
   constructor(private readonly authService: AuthService) {
     this.routes.post("/register", this.register);
+    this.routes.post("/confirm", this.confirmEmail);
     this.routes.post("/login", this.login);
   }
 
@@ -17,6 +18,17 @@ export class AuthController {
     } catch (error) {
       console.error(error);
       res.status(500).send("Failed to register user.");
+    }
+  };
+
+  confirmEmail = async (req: Request, res: Response) => {
+    try {
+      const { token } = req.body;
+      await this.authService.confirmRegistration(token);
+      res.status(200).send("Email confirmed");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Failed to confirm email.");
     }
   };
 
