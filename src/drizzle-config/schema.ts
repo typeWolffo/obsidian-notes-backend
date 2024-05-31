@@ -1,5 +1,12 @@
 import { sql } from "drizzle-orm";
-import { pgEnum, pgTable, uuid, text, primaryKey } from "drizzle-orm/pg-core";
+import {
+  pgEnum,
+  pgTable,
+  uuid,
+  text,
+  primaryKey,
+  boolean,
+} from "drizzle-orm/pg-core";
 
 const timestamps = {
   createdAt: text("created_at").default(sql`(CURRENT_TIMESTAMP)`),
@@ -16,6 +23,16 @@ export const users = pgTable("users", {
   nickname: text("nickname").notNull(),
   password: text("password").notNull(),
   role: roleEnum("role").notNull().default("user"),
+  ...timestamps,
+});
+
+export const tempUsers = pgTable("temp_users", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  email: text("email").notNull().unique(),
+  nickname: text("nickname").notNull(),
+  password: text("password").notNull(),
+  token: text("token").notNull().unique(),
+  confirmed: boolean("confirmed").notNull().default(false),
   ...timestamps,
 });
 

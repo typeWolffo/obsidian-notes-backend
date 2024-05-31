@@ -8,6 +8,27 @@
       "when": 1716463481229,
       "tag": "0000_powerful_vulture",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1717148693168,
+      "tag": "0001_stormy_thunderbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1717148746713,
+      "tag": "0002_nifty_famine",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1717148843099,
+      "tag": "0003_nosy_lethal_legion",
+      "breakpoints": true
     }
   ]
 }
