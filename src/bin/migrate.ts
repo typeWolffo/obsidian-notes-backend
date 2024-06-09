@@ -2,8 +2,9 @@ import "dotenv/config";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import { env } from "../env";
 
-const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = env.DATABASE_URL;
 
 if (!DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
