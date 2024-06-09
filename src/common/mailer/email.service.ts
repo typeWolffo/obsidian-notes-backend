@@ -1,5 +1,5 @@
 import nodemailer, { Transporter } from "nodemailer";
-import { env } from "../env";
+import { env } from "../../env";
 
 export class EmailService {
   private transporter: Transporter;
