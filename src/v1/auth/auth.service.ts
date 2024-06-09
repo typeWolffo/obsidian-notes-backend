@@ -33,7 +33,9 @@ export class AuthService {
       `<p>Please confirm your registration by clicking <a href="${confirmationUrl}">here</a>.</p>`
     );
 
-    return result;
+    const { password: _, ...userWithoutPassword } = result;
+
+    return userWithoutPassword;
   }
 
   async confirmRegistration(token: string) {
