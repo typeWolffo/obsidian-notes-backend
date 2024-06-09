@@ -57,12 +57,12 @@ export class NotesService {
       files.map(async (file: any) => {
         const content = await getFileContent(file.path);
         const { data: frontMatter, content: markdownContent } = matter(content);
-        console.log(frontMatter);
 
         if (frontMatter.visible === false) {
           return null;
         }
         const visibleContent = processContent(markdownContent);
+
         return { filename: file.path, content: visibleContent };
       })
     );

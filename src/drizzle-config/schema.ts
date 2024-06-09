@@ -1,15 +1,10 @@
 import { sql } from "drizzle-orm";
-import {
-  pgEnum,
-  pgTable,
-  uuid,
-  text,
-  primaryKey,
-  boolean,
-} from "drizzle-orm/pg-core";
+import { pgEnum, pgTable, uuid, text, primaryKey } from "drizzle-orm/pg-core";
 
 const timestamps = {
-  createdAt: text("created_at").default(sql`(CURRENT_TIMESTAMP)`),
+  createdAt: text("created_at").default(
+    sql`TO_CHAR(CURRENT_TIMESTAMP, 'YYYY-MM-DD"T"HH24:MI:SS"Z"')`
+  ),
   updatedAt: text("updated_at")
     .default(sql`(CURRENT_TIMESTAMP)`)
     .$onUpdate(() => new Date().toISOString()),
@@ -19,20 +14,13 @@ export const roleEnum = pgEnum("role_enum", ["admin", "user"]);
 
 export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
-  email: text("email").notNull().unique(),
-  nickname: text("nickname").notNull(),
+  email: text("email").unique(),
+  unregisteredEmail: text("unregistered_email").unique(),
+  username: text("username").notNull(),
   password: text("password").notNull(),
   role: roleEnum("role").notNull().default("user"),
-  ...timestamps,
-});
-
-export const tempUsers = pgTable("temp_users", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  email: text("email").notNull().unique(),
-  nickname: text("nickname").notNull(),
-  password: text("password").notNull(),
-  token: text("token").notNull().unique(),
-  confirmed: boolean("confirmed").notNull().default(false),
+  confirmedAt: text("confirmed_at"),
+  confirmationToken: text("confirmation_token").unique(),
   ...timestamps,
 });
 
