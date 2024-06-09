@@ -52,7 +52,7 @@ export function build() {
   );
 
   app.get("/healthcheck", (_req: Request, res: Response) => {
-    res.json({
+    res.status(200).json({
       api: "ok",
     });
   });
