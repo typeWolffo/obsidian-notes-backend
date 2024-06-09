@@ -3,7 +3,7 @@ import "dotenv/config";
 import { db } from "./drizzle-config";
 import cors from "cors";
 import { ErrorHandler } from "./exceptions";
-import { AuthController } from "./v1/auth/auth.controller";
+// import { AuthController } from "./v1/auth/auth.controller";
 import { AuthService } from "./v1/auth/auth.service";
 import { InvitationsController } from "./v1/invitations/invitations.controller";
 import { InvitationsService } from "./v1/invitations/invitations.service";
@@ -42,10 +42,10 @@ export function build() {
     apiBaseUrl,
     new UsersController(new UsersService(db), errorHandler).routes
   );
-  app.use(
-    apiBaseUrl,
-    new AuthController(new AuthService(db), errorHandler).routes
-  );
+  // app.use(
+  //   apiBaseUrl,
+  //   new AuthController(new AuthService(db), errorHandler).routes
+  // );
   app.use(
     apiBaseUrl,
     new InvitationsController(new InvitationsService(db), errorHandler).routes
