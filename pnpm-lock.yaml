@@ -8,9 +8,6 @@ dependencies:
   '@types/nodemailer':
     specifier: ^6.4.15
     version: 6.4.15
-  '@types/nodemailer':
-    specifier: ^6.4.15
-    version: 6.4.15
   axios:
     specifier: ^1.7.2
     version: 1.7.2
@@ -41,9 +38,6 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
-  nodemailer:
-    specifier: ^6.9.13
-    version: 6.9.13
   nodemailer:
     specifier: ^6.9.13
     version: 6.9.13
@@ -831,12 +825,6 @@ packages:
     resolution: {integrity: sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==}
     dependencies:
       undici-types: 5.26.5
-
-  /@types/nodemailer@6.4.15:
-    resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
-    dependencies:
-      '@types/node': 20.12.11
-    dev: false
 
   /@types/nodemailer@6.4.15:
     resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}

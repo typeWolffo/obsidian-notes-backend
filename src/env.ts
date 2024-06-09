@@ -6,7 +6,7 @@ const client = z.object({
   JWT_SECRET: z.string(),
   REFRESH_TOKEN_SECRET: z.string(),
   GMAIL_PASSWORD: z.string(),
-  GMAIL_USER: z.string().email(),
+  GMAIL_USER: z.string(),
   API_BASE_PATH: z.string(),
   GITHUB_OWNER: z.string(),
   GITHUB_REPO: z.string(),
