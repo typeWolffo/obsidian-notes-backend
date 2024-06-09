@@ -1,11 +1,12 @@
 import axios from "axios";
 import matter from "gray-matter";
 import { match } from "ts-pattern";
+import { env } from "../../env";
 
-const owner = process.env.GITHUB_OWNER;
-const repo = process.env.GITHUB_REPO;
-const branch = process.env.GITHUB_BRANCH;
-const token = process.env.GITHUB_TOKEN;
+const owner = env.GITHUB_OWNER;
+const repo = env.GITHUB_REPO;
+const branch = env.GITHUB_BRANCH;
+const token = env.GITHUB_TOKEN;
 
 const getFileList = async () => {
   const url = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
