@@ -8,6 +8,10 @@ const client = z.object({
   GMAIL_PASSWORD: z.string(),
   GMAIL_USER: z.string().email(),
   API_BASE_PATH: z.string(),
+  GITHUB_OWNER: z.string(),
+  GITHUB_REPO: z.string(),
+  GITHUB_BRANCH: z.string(),
+  GITHUB_TOKEN: z.string(),
 });
 
 type EnvOutput = z.infer<typeof client>;
@@ -19,6 +23,10 @@ const metaEnv: Record<keyof EnvOutput, string> = {
   GMAIL_USER: process.env.GMAIL_USER || "",
   GMAIL_PASSWORD: process.env.GMAIL_PASSWORD || "",
   API_BASE_PATH: process.env.API_BASE_PATH || "",
+  GITHUB_OWNER: process.env.GITHUB_OWNER || "",
+  GITHUB_REPO: process.env.GITHUB_REPO || "",
+  GITHUB_BRANCH: process.env.GITHUB_BRANCH || "",
+  GITHUB_TOKEN: process.env.GITHUB_TOKEN || "",
 };
 
 const parsed = client.safeParse(metaEnv);
